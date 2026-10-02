@@ -1,241 +1,229 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Campaña contra el bullying</title>
-<style>
-:root{
-  --purple:#6c4cff; --pink:#ff4f91; --blue:#26a6ff;
-  --yellow:#ffd84d; --green:#35c98a; --dark:#26304a;
-  --light:#f7f8ff; --white:#fff;
-}
-*{box-sizing:border-box}
-
-  <section id="compromiso" class="info">
-    <div class="section-title"><h2>🌈 Nuestro compromiso</h2></div>
-    <p>Una escuela libre de bullying se construye entre todos: <strong>respeto, empatía, inclusión y apoyo.</strong></p>
-  </section>
-html{scroll-behavior:smooth}
-body{
-  margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--dark);
-  background:linear-gradient(135deg,#f4efff,#eaf8ff 48%,#fff3f8);
-}
-header{
-  min-height:100vh;position:relative;display:flex;align-items:center;
-  justify-content:center;text-align:center;overflow:hidden;
-  background:
-    radial-gradient(circle at 15% 20%,rgba(255,216,77,.65),transparent 22%),
-    radial-gradient(circle at 85% 25%,rgba(255,79,145,.45),transparent 24%),
-    radial-gradient(circle at 50% 90%,rgba(38,166,255,.45),transparent 28%),
-    linear-gradient(135deg,#5b4bdb,#a65eea 48%,#ff6699);
-  color:white;padding:30px;
-}
-header:before,header:after{
-  content:"";position:absolute;border-radius:50%;filter:blur(1px);opacity:.25
-}
-header:before{width:280px;height:280px;border:35px solid white;top:-100px;left:-90px}
-header:after{width:360px;height:360px;border:45px solid white;bottom:-180px;right:-130px}
-.hero{position:relative;z-index:2;max-width:900px}
-.badge{
-  display:inline-block;background:rgba(255,255,255,.2);padding:10px 18px;
-  border-radius:999px;font-weight:bold;backdrop-filter:blur(8px)
-}
-h1{font-size:clamp(42px,8vw,82px);margin:22px 0 14px;line-height:.98}
-.hero p{font-size:clamp(18px,3vw,25px);margin:0 auto 28px;max-width:720px}
-.btn{
-  display:inline-block;border:0;background:white;color:#6047cf;
-  padding:15px 26px;border-radius:999px;font-size:17px;font-weight:bold;
-  cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.18);text-decoration:none
-}
-.menu-btn{
-  position:fixed;z-index:20;top:18px;right:18px;width:55px;height:55px;
-  border:0;border-radius:16px;background:white;color:var(--purple);
-  font-size:28px;cursor:pointer;box-shadow:0 8px 25px rgba(0,0,0,.18)
-}
-.overlay{position:fixed;inset:0;background:rgba(22,20,50,.35);z-index:29;display:none}
-.overlay.show{display:block}
-.sidebar{
-  position:fixed;right:-330px;top:0;width:min(330px,88vw);height:100vh;
-  background:white;z-index:30;padding:85px 25px 25px;transition:.3s;
-  box-shadow:-12px 0 35px rgba(0,0,0,.18)
-}
-.sidebar.open{right:0}
-.sidebar h2{color:var(--purple);margin-top:0}
-.sidebar a{
-  display:block;padding:15px;border-radius:13px;margin:8px 0;
-  color:var(--dark);text-decoration:none;font-weight:bold;background:#f5f3ff
-}
-main{max-width:1050px;margin:auto;padding:70px 18px}
-.section-title{text-align:center;margin-bottom:35px}
-.section-title h2{font-size:38px;margin:0 0 8px}
-.section-title p{font-size:18px;color:#606981}
-.card{
-  background:white;border-radius:25px;padding:28px;margin:20px 0;
-  box-shadow:0 10px 35px rgba(57,48,110,.10);border-top:7px solid var(--purple)
-}
-.card:nth-child(2){border-color:var(--pink)}
-.card:nth-child(3){border-color:var(--blue)}
-.card:nth-child(4){border-color:var(--green)}
-.card:nth-child(5){border-color:var(--yellow)}
-.card:nth-child(6){border-color:#ff8757}
-.card:nth-child(7){border-color:#9b63ff}
-.card h3{font-size:21px;margin-top:0}
-textarea{
-  width:100%;min-height:130px;border:2px solid #e4e5ef;border-radius:16px;
-  padding:15px;font-size:16px;resize:vertical;outline:none
-}
-textarea:focus{border-color:var(--purple);box-shadow:0 0 0 4px #eeeaff}
-.save{
-  margin-top:12px;background:var(--purple);color:white;border:0;
-  border-radius:12px;padding:11px 17px;font-weight:bold;cursor:pointer
-}
-.saved{color:#22996b;font-weight:bold;margin-left:10px}
-.info{
-  background:linear-gradient(135deg,#fff6c9,#e9fff6);border-radius:22px;
-  padding:25px;margin:35px 0
-}
-footer{text-align:center;padding:40px 18px;background:#282d49;color:white}
-#app{display:none}
-#register{
-  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:25px;
-  background:linear-gradient(135deg,#6c4cff,#ff4f91,#26a6ff)
-}
-.form{
-  width:min(500px,100%);background:white;border-radius:28px;padding:35px;
-  box-shadow:0 20px 55px rgba(0,0,0,.22)
-}
-.form h2{font-size:34px;margin-top:0;color:var(--purple)}
-.form label{display:block;font-weight:bold;margin:17px 0 7px}
-.form input{
-  width:100%;padding:14px;border:2px solid #e2e4ee;border-radius:13px;
-  font-size:16px
-}
-.form button{
-  width:100%;margin-top:22px;padding:15px;border:0;border-radius:14px;
-  background:linear-gradient(90deg,var(--purple),var(--pink));color:white;
-  font-size:17px;font-weight:bold;cursor:pointer
-}
-.note{font-size:13px;color:#697087;line-height:1.5}
-.error{color:#d52e59;font-weight:bold;min-height:20px}
-.welcome{text-align:center;color:#555}
-@media(max-width:600px){
-  main{padding-top:45px}.card{padding:22px}.section-title h2{font-size:30px}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campaña Contra el Bullying</title>
+  <style>
+    :root {
+      --purple: #6c5ce7;
+      --light-purple: #a29bfe;
+      --dark: #2d3436;
+      --bg: #f9f9fb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background-color: var(--bg); color: var(--dark); line-height: 1.6; padding-bottom: 60px; }
+    
+    header { background: linear-gradient(135deg, var(--purple), var(--light-purple)); color: white; padding: 20px; text-align: center; position: relative; }
+    header h1 { font-size: 1.8rem; margin-bottom: 5px; }
+    
+    .menu-btn { position: absolute; left: 15px; top: 20px; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+    
+    .sidebar { position: fixed; top: 0; left: -250px; width: 250px; height: 100%; background: white; box-shadow: 2px 0 5px rgba(0,0,0,0.2); transition: 0.3s; z-index: 1000; padding: 20px; }
+    .sidebar.open { left: 0; }
+    .sidebar h2 { margin-bottom: 20px; color: var(--purple); }
+    .sidebar a { display: block; padding: 10px 0; color: var(--dark); text-decoration: none; border-bottom: 1px solid #eee; }
+    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: none; z-index: 999; }
+    .overlay.show { display: block; }
+    
+    .container { max-width: 600px; margin: 20px auto; padding: 0 15px; }
+    .card { background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-bottom: 20px; }
+    .card h2 { color: var(--purple); margin-bottom: 15px; font-size: 1.3rem; }
+    
+    input[type="text"], input[type="number"], textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 10px; font-size: 1rem; }
+    textarea { height: 100px; resize: vertical; }
+    
+    .btn { background: var(--purple); color: white; border: none; padding: 12px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer; width: 100%; transition: 0.2s; }
+    .btn:hover { background: #5b4bc4; }
+    .btn:disabled { background: #ccc; cursor: not-allowed; }
+    
+    .status { font-size: 0.85rem; color: #27ae60; margin-top: 5px; text-align: right; }
+    .error { color: #e74c3c; font-size: 0.9rem; margin-bottom: 10px; }
+  </style>
 </head>
 <body>
 
-<section id="register">
-  <div class="form">
-    <div style="font-size:46px">🤝💜</div>
-    <h2>Antes de comenzar</h2>
-    <p>Queremos conocerte para registrar tu participación en la campaña.</p>
-    <label for="name">Tu nombre</label>
-    <input id="name" type="text" maxlength="60" placeholder="Escribe tu nombre">
-    <label for="age">Tu edad</label>
-    <input id="age" type="number" min="1" max="120" placeholder="Escribe tu edad">
-    <div class="error" id="error"></div>
-    <button onclick="enterSite()">Entrar a la campaña 💜</button>
-    <p class="note">Este prototipo guarda el nombre y la edad únicamente en este dispositivo usando el almacenamiento local del navegador. No se envían a un servidor.</p>
+  <header>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <h1>Campaña Contra el Bullying 🛑</h1>
+    <p>Tu voz importa. Participa y reflexiona.</p>
+  </header>
+
+  <div class="sidebar" id="sidebar">
+    <h2>Menú</h2>
+    <a href="#register" onclick="toggleMenu()">Registro</a>
+    <a href="#questions" onclick="toggleMenu()">Preguntas</a>
   </div>
-</section>
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-<div id="app">
-<button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menú">☰</button>
-<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-<nav class="sidebar" id="sidebar">
-  <h2>Temas</h2>
-  <a href="#inicio" onclick="toggleMenu()">🏠 Inicio</a>
-  <a href="#preguntas" onclick="toggleMenu()">💬 Preguntas abiertas</a>
-  <a href="#prevencion" onclick="toggleMenu()">🤝 Prevención</a>
-  <a href="#ayuda" onclick="toggleMenu()">🆘 ¿Dónde pedir ayuda?</a>
-  <a href="#compromiso" onclick="toggleMenu()">🌈 Compromiso contra el bullying</a>
-</nav>
-
-<header id="inicio">
-  <div class="hero">
-    <span class="badge">🌈 Campaña escolar de convivencia</span>
-    <h1>Campaña contra el bullying</h1>
-    <p>Di no al acoso. Escuchar, respetar y acompañar también es una forma de ayudar.</p>
-    <a class="btn" href="#preguntas">Participar 💬</a>
-  </div>
-</header>
-
-<main>
-  <section id="preguntas">
-    <div class="section-title">
-      <h2>💬 Tu opinión importa</h2>
-      <p>Responde libremente. No hay respuestas correctas o incorrectas.</p>
+  <div class="container">
+    <!-- REGISTRO -->
+    <div class="card" id="register">
+      <h2>Registro de Participante</h2>
+      <div id="error" class="error"></div>
+      <label for="name">Nombre o Apodo:</label>
+      <input type="text" id="name" placeholder="Ej. Alex">
+      
+      <label for="age">Edad:</label>
+      <input type="number" id="age" placeholder="Ej. 15">
+      
+      <button class="btn" onclick="enterSite()">Comenzar Encuesta</button>
     </div>
 
-    <div class="info">
-      <strong>¡Hola, <span id="welcomeName"></span>! 👋</strong>
-      <p>Gracias por participar. Comparte lo que piensas con respeto y evita escribir nombres u otros datos personales de otras personas.</p>
+    <!-- PREGUNTAS -->
+    <div id="app" style="display: none;">
+      <div class="card">
+        <h2>Bienvenido/a, <span id="welcomeName"></span> 👋</h2>
+        <p>Responde a las siguientes preguntas para ayudarnos a crear un entorno más seguro para todos.</p>
+      </div>
+
+      <section id="questions">
+        <div class="card">
+          <h3>1. ¿Qué entiendes por bullying o acoso escolar?</h3>
+          <textarea id="q1" placeholder="Escribe tu respuesta aquí..."></textarea>
+          <button class="btn" onclick="saveAnswer(1)">Guardar respuesta 1</button>
+          <div class="status" id="s1"></div>
+        </div>
+
+        <div class="card">
+          <h3>2. ¿Has presenciado o vivido alguna situación de acoso? ¿Cómo afectó?</h3>
+          <textarea id="q2" placeholder="Escribe tu respuesta aquí..."></textarea>
+          <button class="btn" onclick="saveAnswer(2)">Guardar respuesta 2</button>
+          <div class="status" id="s2"></div>
+        </div>
+
+        <div class="card">
+          <h3>3. ¿Por qué crees que algunas personas ejercen el acoso hacia otros?</h3>
+          <textarea id="q3" placeholder="Escribe tu respuesta aquí..."></textarea>
+          <button class="btn" onclick="saveAnswer(3)">Guardar respuesta 3</button>
+          <div class="status" id="s3"></div>
+        </div>
+
+        <div class="card">
+          <h3>4. ¿Qué acciones podemos tomar como estudiantes para prevenir el bullying?</h3>
+          <textarea id="q4" placeholder="Escribe tu respuesta aquí..."></textarea>
+          <button class="btn" onclick="saveAnswer(4)">Guardar respuesta 4</button>
+          <div class="status" id="s4"></div>
+        </div>
+
+        <div class="card">
+          <h3>5. ¿Cómo te gustaría que los maestros o la escuela reaccionaran ante estas situaciones?</h3>
+          <textarea id="q5" placeholder="Escribe tu respuesta aquí..."></textarea>
+          <button class="btn" onclick="saveAnswer(5)">Guardar respuesta 5</button>
+          <div class="status" id="s5"></div>
+        </div>
+
+        <div class="card">
+          <h3>6. Deja un mensaje de apoyo o un consejo positivo para quien esté sufriendo acoso:</h3>
+          <textarea id="q6" placeholder="Escribe tu mensaje aquí..."></textarea>
+          <button class="btn" onclick="saveAnswer(6)">Guardar respuesta 6</button>
+          <div class="status" id="s6"></div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+          <button id="btnSubmitAll" class="btn" style="background: var(--purple); color: white;" onclick="enviarTodoAGoogle()">
+            Enviar todas mis respuestas 🚀
+          </button>
+        </div>
+      </section>
     </div>
-
-    <div class="card"><h3>1. ¿Conoces a alguien que haya sufrido bullying? ¿Cómo pasó?</h3><textarea id="q1" placeholder="Escribe lo que piensas..."></textarea><button class="save" onclick="saveAnswer(1)">Guardar respuesta</button><span class="saved" id="s1"></span></div>
-    <div class="card"><h3>2. ¿Qué propuestas darías para mantener un ambiente sano?</h3><textarea id="q2" placeholder="Escribe tus propuestas..."></textarea><button class="save" onclick="saveAnswer(2)">Guardar respuesta</button><span class="saved" id="s2"></span></div>
-    <div class="card"><h3>3. ¿Con quién acudirías si te hicieran bullying?</h3><textarea id="q3" placeholder="Escribe tu respuesta..."></textarea><button class="save" onclick="saveAnswer(3)">Guardar respuesta</button><span class="saved" id="s3"></span></div>
-    <div class="card"><h3>4. ¿Por qué crees que esa persona te hace bullying?</h3><textarea id="q4" placeholder="Escribe lo que piensas..."></textarea><button class="save" onclick="saveAnswer(4)">Guardar respuesta</button><span class="saved" id="s4"></span></div>
-    <div class="card"><h3>5. ¿Has sido quien agrede en algún momento? ¿Cómo te sentías?</h3><textarea id="q5" placeholder="Puedes responder con sinceridad y respeto..."></textarea><button class="save" onclick="saveAnswer(5)">Guardar respuesta</button><span class="saved" id="s5"></span></div>
-    <div class="card"><h3>6. ¿Cómo has logrado enfrentarlo?</h3><textarea id="q6" placeholder="Cuéntanos qué te ha ayudado..."></textarea><button class="save" onclick="saveAnswer(6)">Guardar respuesta</button><span class="saved" id="s6"></span></div>
-  </section>
-
-  <section id="prevencion" class="info">
-    <div class="section-title"><h2>🤝 Mantengamos un ambiente sano</h2></div>
-    <p>Respetar las diferencias, escuchar sin burlas, incluir a otras personas y pedir ayuda cuando exista acoso son acciones que pueden ayudar a crear una convivencia más segura.</p>
-  </section>
-
-  <section id="ayuda" class="info">
-    <div class="section-title"><h2>🆘 ¿Dónde pedir ayuda?</h2></div>
-    <p>Si tú o alguien más está viviendo bullying, habla con una persona adulta de confianza, un familiar, docente, orientador escolar o autoridad de tu escuela. Si existe peligro inmediato, busca ayuda de emergencia de tu localidad.</p>
-  </section>
-</main>
-
-<footer>
-  <strong>Campaña contra el bullying</strong><br>
-  Juntos podemos construir una convivencia con respeto. 💜
-</footer>
-</div>
+  </div>
 
 <script>
+// Tu enlace de SheetMonkey
+const URL_SHEETMONKEY = 'https://api.sheetmonkey.io/form/c1JitG1dhr7sM0Avedkzb';
+
 function enterSite(){
-  const name=document.getElementById('name').value.trim();
-  const age=Number(document.getElementById('age').value);
-  const error=document.getElementById('error');
-  if(!name || !age || age<1 || age>120){
-    error.textContent='Por favor escribe un nombre y una edad válida.';
+  const name = document.getElementById('name').value.trim();
+  const age = Number(document.getElementById('age').value);
+  const error = document.getElementById('error');
+  
+  if(!name || !age || age < 1 || age > 120){
+    error.textContent = 'Por favor escribe un nombre y una edad válida.';
     return;
   }
-  const participant={name:name,age:age,registeredAt:new Date().toISOString()};
-  localStorage.setItem('bullyingParticipant',JSON.stringify(participant));
-  document.getElementById('welcomeName').textContent=name;
-  document.getElementById('register').style.display='none';
-  document.getElementById('app').style.display='block';
+  
+  const participant = { name: name, age: age, registeredAt: new Date().toISOString() };
+  localStorage.setItem('bullyingParticipant', JSON.stringify(participant));
+  
+  document.getElementById('welcomeName').textContent = name;
+  document.getElementById('register').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
   window.scrollTo(0,0);
 }
+
 function saveAnswer(n){
-  const value=document.getElementById('q'+n).value.trim();
-  if(!value){alert('Escribe una respuesta antes de guardarla.');return;}
-  localStorage.setItem('bullyingAnswer'+n,value);
-  document.getElementById('s'+n).textContent='✓ Guardada en este dispositivo';
+  const value = document.getElementById('q' + n).value.trim();
+  if(!value){
+    alert('Escribe una respuesta antes de guardarla.');
+    return;
+  }
+  localStorage.setItem('bullyingAnswer' + n, value);
+  document.getElementById('s' + n).textContent = '✓ Guardada en este dispositivo';
 }
+
 function toggleMenu(){
   document.getElementById('sidebar').classList.toggle('open');
   document.getElementById('overlay').classList.toggle('show');
 }
-window.addEventListener('DOMContentLoaded',()=>{
-  const p=localStorage.getItem('bullyingParticipant');
+
+function enviarTodoAGoogle(){
+  const p = localStorage.getItem('bullyingParticipant');
+  if(!p){
+    alert('Ingresa primero tu nombre y edad.');
+    return;
+  }
+
+  const datosUsuario = JSON.parse(p);
+  const btnSubmit = document.getElementById('btnSubmitAll');
+  
+  btnSubmit.disabled = true;
+  btnSubmit.textContent = 'Enviando respuestas... ⏳';
+
+  const datosAEnviar = {
+    "Nombre": datosUsuario.name,
+    "Edad": datosUsuario.age,
+    "Pregunta 1": document.getElementById('q1').value.trim(),
+    "Pregunta 2": document.getElementById('q2').value.trim(),
+    "Pregunta 3": document.getElementById('q3').value.trim(),
+    "Pregunta 4": document.getElementById('q4').value.trim(),
+    "Pregunta 5": document.getElementById('q5').value.trim(),
+    "Pregunta 6": document.getElementById('q6').value.trim(),
+    "Fecha": new Date().toLocaleString()
+  };
+
+  fetch(URL_SHEETMONKEY, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(datosAEnviar)
+  })
+  .then(() => {
+    alert('¡Tus respuestas se han guardado con éxito!');
+    btnSubmit.disabled = false;
+    btnSubmit.textContent = '✅ Encuesta enviada con éxito';
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Hubo un error al enviar las respuestas.');
+    btnSubmit.disabled = false;
+    btnSubmit.textContent = 'Enviar todas mis respuestas 🚀';
+  });
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const p = localStorage.getItem('bullyingParticipant');
   if(p){
     try{
-      const data=JSON.parse(p);
-      document.getElementById('welcomeName').textContent=data.name;
-      document.getElementById('register').style.display='none';
-      document.getElementById('app').style.display='block';
-      for(let i=1;i<=6;i++){
-        const a=localStorage.getItem('bullyingAnswer'+i);
-        if(a){document.getElementById('q'+i).value=a;document.getElementById('s'+i).textContent='✓ Guardada en este dispositivo';}
+      const data = JSON.parse(p);
+      document.getElementById('welcomeName').textContent = data.name;
+      document.getElementById('register').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      for(let i = 1; i <= 6; i++){
+        const a = localStorage.getItem('bullyingAnswer' + i);
+        if(a){
+          document.getElementById('q' + i).value = a;
+          document.getElementById('s' + i).textContent = '✓ Guardada en este dispositivo';
+        }
       }
     }catch(e){}
   }
