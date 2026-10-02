@@ -130,7 +130,6 @@
   </div>
 
 <script>
-// Tu enlace de SheetMonkey
 const URL_SHEETMONKEY = 'https://api.sheetmonkey.io/form/7TxagCKCvm9yypCdW82FmL';
 
 function enterSite(){
@@ -167,22 +166,17 @@ function toggleMenu(){
   document.getElementById('overlay').classList.toggle('show');
 }
 
-function enviarTodoAGoogle(){
-  const p = localStorage.getItem('bullyingParticipant');
-  if(!p){
-    alert('Ingresa primero tu nombre y edad.');
-    return;
-  }
-
-  const datosUsuario = JSON.parse(p);
-  const btnSubmit = document.getElementById('btnSubmitAll');
+async function enviarTodoAGoogle(){
+  const nameVal = document.getElementById('name')?.value.trim() || '';
+  const ageVal = document.getElementById('age')?.value.trim() || '';
   
+  const btnSubmit = document.getElementById('btnSubmitAll');
   btnSubmit.disabled = true;
   btnSubmit.textContent = 'Enviando respuestas... ⏳';
 
   const datosAEnviar = {
-    "Nombre": datosUsuario.name,
-    "Edad": datosUsuario.age,
+    "Nombre": nameVal || "Sin nombre",
+    "Edad": ageVal || "Sin edad",
     "Pregunta 1": document.getElementById('q1').value.trim(),
     "Pregunta 2": document.getElementById('q2').value.trim(),
     "Pregunta 3": document.getElementById('q3').value.trim(),
@@ -192,22 +186,28 @@ function enviarTodoAGoogle(){
     "Fecha": new Date().toLocaleString()
   };
 
-  fetch(URL_SHEETMONKEY, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(datosAEnviar)
-  })
-  .then(() => {
-    alert('¡Tus respuestas se han guardado con éxito!');
-    btnSubmit.disabled = false;
-    btnSubmit.textContent = '✅ Encuesta enviada con éxito';
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    alert('Hubo un error al enviar las respuestas.');
+  try {
+    const res = await fetch(URL_SHEETMONKEY, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(datosAEnviar)
+    });
+
+    if(res.ok) {
+      alert('¡Tus respuestas se han guardado con éxito!');
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = '✅ Encuesta enviada con éxito';
+    } else {
+      const errText = await res.text();
+      alert('Error en SheetMonkey (' + res.status + '): ' + errText);
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = 'Enviar todas mis respuestas 🚀';
+    }
+  } catch(error) {
+    alert('Error de conexión al enviar: ' + error.message);
     btnSubmit.disabled = false;
     btnSubmit.textContent = 'Enviar todas mis respuestas 🚀';
-  });
+  }
 }
 
 window.addEventListener('DOMContentLoaded', () => {
